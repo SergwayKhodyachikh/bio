@@ -1,65 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#E53935"
-    android:orientation="vertical"
-    tools:context=".MainActivity">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:contentDescription="@string/image_description"
-        app:srcCompat="@drawable/ic_launcher_foreground" />
+    <data>
 
-    <TextView
-        android:id="@+id/textView"
-        style="@style/nameStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="@string/name" />
+        <variable
+            name="bio"
+            type="com.sergway.bio.data.Bio" />
+    </data>
 
-    <EditText
-        android:id="@+id/enterHobbies"
-        style="@style/generalStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="@string/hobby_hint_text"
-        android:inputType="textPersonName"
-        android:autofillHints="@string/auto_fill_hints" />
-
-    <Button
-        android:id="@+id/doneButton"
-        style="@style/generalStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="@string/done_text"
-        android:onClick="addHobbies"
-        />
-
-    <TextView
-        android:id="@+id/hobbiesText"
-        style="@style/generalStyle"
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:visibility="gone" />
+        android:layout_height="match_parent"
+        android:background="#E53935"
+        android:orientation="vertical"
+        tools:context=".MainActivity">
 
-    <ScrollView
-        style="@style/nameStyle"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:contentDescription="@string/image_description"
+            app:srcCompat="@drawable/ic_launcher_foreground" />
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/textView"
+            style="@style/nameStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@{bio.name}" />
+
+        <EditText
+            android:id="@+id/enterHobbies"
             style="@style/generalStyle"
-            android:fontFamily="@font/roboto_slab"
-            android:text="@string/my_bio" />
-    </ScrollView>
-</androidx.appcompat.widget.LinearLayoutCompat>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:autofillHints="@string/auto_fill_hints"
+            android:ems="10"
+            android:hint="@string/hobby_hint_text"
+            android:inputType="textPersonName" />
+
+        <Button
+            android:id="@+id/doneButton"
+            style="@style/generalStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/done_text" />
+
+        <TextView
+            android:id="@+id/hobbiesText"
+            style="@style/generalStyle"
+            android:text="@{bio.hobbies}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone" />
+
+        <ScrollView
+            style="@style/nameStyle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView3"
+                style="@style/generalStyle"
+                android:fontFamily="@font/roboto_slab"
+                android:text="@string/my_bio" />
+        </ScrollView>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>
